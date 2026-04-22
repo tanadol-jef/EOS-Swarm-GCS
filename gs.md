@@ -3,6 +3,31 @@
 
 ---
 
+## Progress
+
+| # | Task | Status |
+|---|---|---|
+| — | Write build plan (gs.md v2) | ✅ Done |
+| — | Write README.md | ✅ Done |
+| — | Create GitHub repo (EOS-Swarm-GCS) | ✅ Done — https://github.com/tanadol-jef/EOS-Swarm-GCS |
+| — | Add RTSP video feed to plan (Phase 8) | ✅ Done |
+| 1 | Scaffold dirs, init Vite, install deps | ⬜ Not started |
+| 2 | `droneStore.js` + `useWebSocket.js` | ⬜ Not started |
+| 3 | `main.py` + `mavlink_bridge.py` + `drone_registry.py` | ⬜ Not started |
+| 4 | `App.jsx` shell + dark CSS | ⬜ Not started |
+| 5 | `TopBar` + `FleetSidebar` | ⬜ Not started |
+| 6 | `MapView` + `DroneMarker` | ⬜ Not started |
+| 7 | `TelemetryPanel` + `ArtificialHorizon` | ⬜ Not started |
+| 8 | `CommandPanel` + `ConfirmModal` | ⬜ Not started |
+| 9 | `AlertBanner` + auto-alert logic | ⬜ Not started |
+| 10 | `MissionPanel` + waypoint upload | ⬜ Not started |
+| 11 | Keyboard shortcuts | ⬜ Not started |
+| 12 | Formation presets + geofence overlay | ⬜ Not started |
+| 13 | `video_manager.py` + video REST endpoints | ⬜ Not started |
+| 14 | `VideoFeedPanel.jsx` + `hls.js` | ⬜ Not started |
+
+---
+
 ## Project Overview
 
 A browser-based Ground Control Station (GCS) for managing a swarm of drones. Designed for real field use: dark theme, keyboard shortcuts, instant status-at-a-glance, and safety confirmations on destructive commands.
