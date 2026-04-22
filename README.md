@@ -111,6 +111,31 @@ The Python backend listens on one UDP port per drone, parses MAVLink v2 messages
 | `1` – `9` | Select drone by index |
 | `Tab` | Cycle right panel tabs |
 
+### Video Feed (RTSP)
+
+Auterion OS drones expose camera video over RTSP. The GCS bridges each stream to the browser using FFmpeg (RTSP → HLS) and plays it with `hls.js`.
+
+```
+Drone RTSP :8554/live  →  FFmpeg (backend)  →  HLS  →  hls.js (browser)
+```
+
+**Selecting a stream:**
+1. Open the **Video** tab in the right panel
+2. Choose a drone from the dropdown — if the drone broadcast `VIDEO_STREAM_INFORMATION`, the RTSP URL is pre-filled automatically
+3. Edit the URL if needed (default pattern: `rtsp://<drone-ip>:8554/live`)
+4. Click **Connect** — the backend starts an FFmpeg process and the player begins buffering
+5. Click **Disconnect** to stop the stream and free the FFmpeg process
+
+Each drone gets its own independent stream process. Switching drones disconnects the current stream automatically.
+
+**Requires FFmpeg installed on the backend host:**
+```bash
+# Ubuntu/Debian
+sudo apt install ffmpeg
+# macOS
+brew install ffmpeg
+```
+
 ---
 
 ## MAVLink Messages Handled
@@ -125,6 +150,7 @@ The Python backend listens on one UDP port per drone, parses MAVLink v2 messages
 | `GPS_RAW_INT` | `fix_type`, `satellites_visible` |
 | `MISSION_CURRENT` | `seq` |
 | `STATUSTEXT` | `severity`, `text` |
+| `VIDEO_STREAM_INFORMATION` | `uri` (RTSP URL auto-populated) |
 
 ---
 
